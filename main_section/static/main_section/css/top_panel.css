@@ -56,7 +56,7 @@ html, body {
     flex-direction: column;
     /*gap: 20px;*/
     width: 200px;
-    height: 100%;
+    height: 100vw;
     background: var(--block-color);
     z-index: 9;
     position: sticky;
