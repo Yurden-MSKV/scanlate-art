@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>scanlate.art</title>
+</head>
+<body>
+    <link rel="stylesheet" href="{% static '/css/text.css' %}">
+    <link rel="stylesheet" href="{% static 'main_section/css/top_panel.css' %}">
+    <div class="top_panel_container">
+        <div class="site_name"><h1>scanlate.art</h1></div>
+        <div class="links">
+            <a href="#"><h2>Общая лента</h2></a>
+            <a href="#"><h2>Посты</h2></a>
+            <a href="#"><h2>Работа</h2></a>
+            <a href="#"><h2>Материалы</h2></a>
+        </div>
+        <div class="profile">
+            <h1>{{ user.username }}</h1>
+        </div>
+    </div>
+    <div class="main_container">
+        <div class="left_panel side_panel">
+            {% block side_panel %}
+            {% endblock %}
+        </div>
+        
+        <div class="content-area">
+            {% block site_content %}    
+            {% endblock %}
+        </div>
+        
+        <div class="right_panel side_panel">
+            <div class="my_posts right_panel_content"><a href="#"><img src="
+{% static 'main_section/icons/post_icon.svg' %}"><h2>Посты</h2></a></div>
+            <div class="my_comments right_panel_content"><a href="#"><img src="
+{% static 'main_section/icons/comment_icon.svg' %}"><h2>Комменты</h2></a></div>
+            <div class="answers_to_me right_panel_content"><a href="#"><img src="
+{% static 'main_section/icons/answer_icon.svg' %}"><h2>Ответы</h2></a></div>
+            <div class="my_messages right_panel_content"><a href="#"><img src="
+{% static 'main_section/icons/message_icon.svg' %}"><h2>Сообщения</h2></a></div>
+            <div class="my_profile right_panel_content"><a href="#"><img src="
+{% static 'main_section/icons/profile_icon.svg' %}"><h2>Профиль</h2></a></div>
+        </div>
+    </div>
+</body>
+</html>
