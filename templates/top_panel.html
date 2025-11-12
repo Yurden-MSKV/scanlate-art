@@ -12,7 +12,7 @@
         <div class="site_name"><h1>scanlate.art</h1></div>
         <div class="links">
             <a href="#"><h2>Общая лента</h2></a>
-            <a href="#"><h2>Посты</h2></a>
+            <a href="{% url 'post_section' %}"><h2>Посты</h2></a>
             <a href="#"><h2>Работа</h2></a>
             <a href="#"><h2>Материалы</h2></a>
         </div>
@@ -47,6 +47,10 @@
 {% static 'main_section/icons/message_icon.svg' %}"><h2>Сообщения</h2></a></div>
             <div class="my_profile right_panel_content"><a href="#"><img src="
 {% static 'main_section/icons/profile_icon.svg' %}"><h2>Профиль</h2></a></div>
+            {% if user.username == 'yurden' %}
+                <div class="my_profile right_panel_content"><a href="../admin/"><img src="
+                    {% static 'main_section/icons/admin_icon.svg' %}"><h2>Админка</h2></a></div>
+            {% endif %}
         </div>
     </div>
 </body>

@@ -10,6 +10,12 @@
         <div class="author_and_date">
             <img src="{{ post.author.profile.user_picture.url }}" alt="{% static 'main_section/icons/profile_icon.svg' %}">
             <p class="nickname">{{ post.author }}</p>
+            {% if user.username == post.author.username %}
+                <a class="edit_link" href="#">
+                    <img src="{% static 'post_section/icons/edit_icon.svg' %}">
+                    <p>Редактировать</p>
+                </a>
+            {% endif %}
             <p class="date">{{ post.created_at }}</p>
         </div>
         <div class="post_title">{{ post.title }}</div>
@@ -19,10 +25,10 @@
                 <div class="tag_element">{{ tag }}</div>
             {% endfor %}
         </div>
-        <div class="content_block short">
-            {{ post.get_short_content_safe }}
-        </div>
-        <div class="content_block full">
+{#        <div class="content_block short">#}
+{#            {{ post.get_short_content_safe }}#}
+{#        </div>#}
+        <div class="content_block">
             {{ post.post_content|add_nbsp|smart_break }}
         </div>
         <div class="comments_views_read_more">
@@ -46,10 +52,8 @@
         document.querySelectorAll('#read-more').forEach(button => {
             button.addEventListener('click', function() {
                 const post = this.closest('.one_post_block');
-                const shortBlock = post.querySelector('.content_block.short');
-                shortBlock.style.display = 'none';
-                const fullBlock = post.querySelector('.content_block.full');
-                fullBlock.style.display = 'block';
+                const postBlock = post.querySelector('.content_block');
+                postBlock.style.height = 'fit-content';
                 const buttonMore = post.querySelector('#read-more');
                 buttonMore.style.display = 'none';
                 const buttonHide = post.querySelector('#hide-back');
@@ -60,10 +64,8 @@
         document.querySelectorAll('#hide-back').forEach(button => {
             button.addEventListener('click', function() {
                 const post = this.closest('.one_post_block');
-                const fullBlock = post.querySelector('.content_block.full');
-                fullBlock.style.display = 'none';
-                const shortBlock = post.querySelector('.content_block.short');
-                shortBlock.style.display = 'block';
+                const postBlock = post.querySelector('.content_block');
+                postBlock.style.height = '250px';
                 const buttonHide = post.querySelector('#hide-back');
                 buttonHide.style.display = 'none';
                 const buttonMore = post.querySelector('#read-more');
