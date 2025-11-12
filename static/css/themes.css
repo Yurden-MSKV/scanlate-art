@@ -2,7 +2,10 @@ body {
     --background-color: #FFFFFF;
     --text-color: #000000;
     --top-panel-color: #D9D9D9;
-    --block-color: #DCD7D0;
+    --block-color: #D6D0C2;
+    --tag_background: #8A9A5B;
+    /*--tag-text: #F6F2EC;*/
+    --tag-text: #97C2EC;
     --hover-color: #585858;
     --hover-text-color: #FFFFFF;
     --element-color: #BFBFBF;
@@ -11,4 +14,5 @@ body {
     --tran-back: background 0.5s ease;
     --tran-icon: filter 0.5s ease;
     --tran-font: color 0.5s ease;
+    --border-radius: 5px;
 }

@@ -1,8 +1,76 @@
 {% extends "top_panel.html" %}
 {% load static %}
+{% load text_processing %}
 
 {% block site_content %}
-
-    
+    <link rel="stylesheet" href="{% static 'post_section/css/post_catalog.css' %}">
+<div class="page_container">
+    {% for post in posts %}
+    <div class="one_post_block">
+        <div class="author_and_date">
+            <img src="{{ post.author.profile.user_picture.url }}" alt="{% static 'main_section/icons/profile_icon.svg' %}">
+            <p class="nickname">{{ post.author }}</p>
+            <p class="date">{{ post.created_at }}</p>
+        </div>
+        <div class="post_title">{{ post.title }}</div>
+        <div class="tags_block">
+            <div class="tag_element">{{ post.category }}</div>
+            {% for tag in post.tags.all %}
+                <div class="tag_element">{{ tag }}</div>
+            {% endfor %}
+        </div>
+        <div class="content_block short">
+            {{ post.get_short_content_safe }}
+        </div>
+        <div class="content_block full">
+            {{ post.post_content|add_nbsp|smart_break }}
+        </div>
+        <div class="comments_views_read_more">
+            <div class="com_n_view">
+                <div class="comment_count">
+                    <img src="{% static 'post_section/icons/comment_icon.svg' %}">
+                </div>
+                <div class="view_count">
+                    <img src="{% static 'post_section/icons/view_eye.svg' %}">
+                </div>
+            </div>
+            <div class="read_more_block">
+                <button class="read_more" id="read-more">Развернуть</button>
+                <button class="hide_back" id="hide-back">Свернуть</button>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>    
+    <script>
+        document.querySelectorAll('#read-more').forEach(button => {
+            button.addEventListener('click', function() {
+                const post = this.closest('.one_post_block');
+                const shortBlock = post.querySelector('.content_block.short');
+                shortBlock.style.display = 'none';
+                const fullBlock = post.querySelector('.content_block.full');
+                fullBlock.style.display = 'block';
+                const buttonMore = post.querySelector('#read-more');
+                buttonMore.style.display = 'none';
+                const buttonHide = post.querySelector('#hide-back');
+                buttonHide.style.display = 'block';
+                
+            });
+        });
+        document.querySelectorAll('#hide-back').forEach(button => {
+            button.addEventListener('click', function() {
+                const post = this.closest('.one_post_block');
+                const fullBlock = post.querySelector('.content_block.full');
+                fullBlock.style.display = 'none';
+                const shortBlock = post.querySelector('.content_block.short');
+                shortBlock.style.display = 'block';
+                const buttonHide = post.querySelector('#hide-back');
+                buttonHide.style.display = 'none';
+                const buttonMore = post.querySelector('#read-more');
+                buttonMore.style.display = 'block';
+            });
+        });
+        
+    </script>
     
 {% endblock %}

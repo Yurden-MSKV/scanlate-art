@@ -1,0 +1,124 @@
+@import url('../../../../static/css/themes.css');
+@import url('../../../../static/css/text.css');
+
+.page_container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100vh;
+    margin: 0 10px;
+    /*background: green;*/
+}
+
+.one_post_block {
+    display: flex;
+    flex-direction: column;
+    /*flex-grow: 1;*/
+    height: fit-content;
+    background: var(--block-color);
+    border-radius: var(--border-radius);
+}
+
+.author_and_date {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 20px;
+    align-items: center;
+}
+
+.author_and_date img {
+    width: 24px;
+    margin-right: 5px;
+    border-radius: var(--border-radius);
+}
+
+.author_and_date h3 {
+    line-height: 1.5;
+}
+
+
+.date {
+    margin-left: auto;
+}
+
+.post_title {
+    margin: 0 20px 5px 20px;
+    font: bold 20px 'Nunito', sans-serif;
+}
+
+.content_block {
+    margin: 0 20px;
+}
+
+.content_block blockquote {
+    background: #97C2EC;
+    width: fit-content;
+    margin-left: 0;
+    font-weight: 500;
+    font-size: 17px;
+    padding: 1px 6px;
+    border-radius: var(--border-radius);
+}
+
+.short {
+    font: 17px 'Nunito', sans-serif;
+}
+
+.full {
+    display: none;
+}
+
+.tags_block {
+    display: flex;
+    flex-direction: row;
+    gap: 11px;
+    margin: 0 20px 10px 20px;
+}
+
+.tag_element {
+    display: flex;
+    font: bold 15px 'Nunito', sans-serif;
+    color: #595959 !important;
+    /*color: var(--tag-text) !important;*/
+}
+
+.comments_views_read_more {
+    display: flex;
+    align-items: center;
+}
+
+.com_n_view {
+    display: flex;
+    flex-direction: row;
+    margin: 0 20px;
+    gap: 20px;
+}
+
+.com_n_view img {
+    width: 24px;
+    height: 24px;
+}
+
+.read_more_block {
+    display: flex;
+    margin: 10px 20px 20px auto;
+    text-align: center;
+    border-radius: var(--border-radius);
+    border: 2px solid black;
+}
+
+.read_more_block button {
+    background: none;
+    border: none;
+    font: bold 15px 'Nunito', sans-serif;
+    padding: 5px 7px;
+    cursor: pointer;
+}
+
+.read_more {
+    display: block;
+}
+
+.hide_back {
+    display: none;
+}

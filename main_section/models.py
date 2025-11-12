@@ -11,6 +11,7 @@ class Profile(models.Model):
 
     class Meta:
         verbose_name = 'Профили'
+        verbose_name_plural = 'Профили'
 
 def cover_path(instance, filename):
     return f'manga/covers/{instance.id}/{filename}'

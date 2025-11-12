@@ -7,7 +7,6 @@
     <title>scanlate.art</title>
 </head>
 <body>
-    <link rel="stylesheet" href="{% static '/css/text.css' %}">
     <link rel="stylesheet" href="{% static 'main_section/css/top_panel.css' %}">
     <div class="top_panel_container">
         <div class="site_name"><h1>scanlate.art</h1></div>
@@ -17,10 +16,15 @@
             <a href="#"><h2>Работа</h2></a>
             <a href="#"><h2>Материалы</h2></a>
         </div>
+        <div class="add_block">
+            <a href="#"><img src="{% static 'main_section/icons/add_icon.svg' %}"><h2>Написать пост</h2></a>
+        </div>
         <div class="profile">
+            <img src="{{ user.profile.user_picture.url }}" alt="{% static 'main_section/icons/profile_icon.svg' %}">
             <h1>{{ user.username }}</h1>
         </div>
     </div>
+    <div class="buffer"></div>
     <div class="main_container">
         <div class="left_panel side_panel">
             {% block side_panel %}
